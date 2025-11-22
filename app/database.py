@@ -4,7 +4,8 @@ from sqlalchemy.orm import sessionmaker
 from .config import setting
 
 # The '@' in the password must be replaced by '%40'
-SQLALCHEMY_DATABASE_URL = f'postgresql://{setting.database_username}:{setting.database_password}@{setting.database_hostname}:{setting.database_port}/{setting.database_name}'
+# app/database.py (NEW, CORRECT LINE)
+SQLALCHEMY_DATABASE_URL = setting.DATABASE_URL
 
 engine = create_engine(SQLALCHEMY_DATABASE_URL)
 
