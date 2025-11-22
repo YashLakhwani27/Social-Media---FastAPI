@@ -1,14 +1,13 @@
 from pydantic_settings import BaseSettings
 
 class Settings(BaseSettings):
-    database_hostname: str
-    database_port: str
-    database_name: str
-    database_password: str
-    database_username: str
-    secret_key: str
-    algorithm: str
-    access_token_expire_minutes: int
+    SECRET_KEY: str
+    ALGORITHM: str
+    ACCESS_TOKEN_EXPIRE_MINUTES: int
+
+    # Primary database connection string for deployment
+    # This will load the correct Render URL
+    DATABASE_URL: str
 
     class Config:
         env_file = ".env"
